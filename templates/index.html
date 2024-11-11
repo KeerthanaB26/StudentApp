@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+</head>
+<body>
+    <h1>Student Details</h1>
+    <a href="/add">Add New Student</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>USN</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>State</th>
+                <th>PhNo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+            <tr>
+                <td>{{ student.usn }}</td>
+                <td>{{ student.name }}</td>
+                <td>{{ student.age }}</td>
+                <td>{{ student.state }}</td>
+                <td>{{ student.phno }}</td>
+
+                <td>
+                    <a href="/edit/{{ student.usn }}">Edit</a> |
+                    <a href="/delete/{{ student.usn }}" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
